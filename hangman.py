@@ -50,13 +50,12 @@ class Player:
     def guess(self):
         self.answer = input('Guess a letter: ')
 
-
 class Processes:
     def __init__(self):
         pass
 
     def validate_user_input(self, player):
-        expression=re.match('(?i)[a-a]',player.answer)
+        expression = re.match('(?i)[a-z]', player.answer)
         if expression == None or len(player.answer)>1:
             print('\nPlease guess a single alphabet')
         else:
@@ -68,7 +67,7 @@ class Processes:
                 
         elif player.answer not in bank.current_word:
             player.lives -= 1
-            print('\nNope!')            
+            print('\nNope!')
             print('Lives remaining: {}'.format(player.lives))
             bank.letters_already_guessed.append(player.answer)
 
